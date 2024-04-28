@@ -1,0 +1,58 @@
+name: "General Knowledge QA"
+description: "Evaluate LLM general knowledge without retrieval context"
+version: "1.0"
+tags:
+  - qa
+  - general-knowledge
+  - zero-shot
+
+test_cases:
+  - id: qa-001
+    question: "Explain the difference between TCP and UDP protocols."
+    expected_answer: "TCP (Transmission Control Protocol) is connection-oriented, provides reliable ordered delivery with error checking and retransmission, and uses a three-way handshake. UDP (User Datagram Protocol) is connectionless, provides best-effort delivery without guarantees of ordering or reliability, and has lower overhead making it suitable for real-time applications like video streaming and gaming."
+    tags:
+      - networking
+      - comparison
+    metadata:
+      difficulty: medium
+      domain: computer-science
+
+  - id: qa-002
+    question: "What causes tides on Earth?"
+    expected_answer: "Tides are primarily caused by the gravitational pull of the Moon and, to a lesser extent, the Sun on Earth's oceans. The Moon's gravity creates a tidal bulge on the side of Earth closest to it and a second bulge on the opposite side due to inertial effects. As Earth rotates, coastal areas pass through these bulges, producing two high tides and two low tides approximately every 24 hours and 50 minutes."
+    tags:
+      - physics
+      - earth-science
+    metadata:
+      difficulty: easy
+      domain: natural-science
+
+  - id: qa-003
+    question: "What is the CAP theorem in distributed systems?"
+    expected_answer: "The CAP theorem states that a distributed data store cannot simultaneously provide more than two of the following three guarantees: Consistency (every read receives the most recent write), Availability (every request receives a non-error response), and Partition tolerance (the system continues to operate despite network partitions). Since network partitions are unavoidable in practice, systems must choose between consistency and availability during a partition."
+    tags:
+      - distributed-systems
+      - theory
+    metadata:
+      difficulty: hard
+      domain: computer-science
+
+  - id: qa-004
+    question: "How does mRNA vaccination work?"
+    expected_answer: "mRNA vaccines deliver synthetic messenger RNA encoding a specific viral protein (e.g., the SARS-CoV-2 spike protein) into host cells via lipid nanoparticles. The host cell's ribosomes translate the mRNA into the target protein, which is then displayed on the cell surface. The immune system recognizes this foreign protein and mounts an adaptive immune response, producing antibodies and memory T-cells that provide protection against future infection. The mRNA is degraded naturally within days."
+    tags:
+      - biology
+      - medicine
+    metadata:
+      difficulty: medium
+      domain: life-science
+
+  - id: qa-005
+    question: "What is the significance of the Turing test?"
+    expected_answer: "The Turing test, proposed by Alan Turing in 1950, is a measure of machine intelligence where a human evaluator engages in natural language conversation with both a human and a machine without knowing which is which. If the evaluator cannot reliably distinguish the machine from the human, the machine is said to have passed the test. Its significance lies in framing machine intelligence in terms of behavioral indistinguishability rather than internal processes, though it has been criticized for testing imitation rather than genuine understanding."
+    tags:
+      - ai
+      - philosophy
+    metadata:
+      difficulty: easy
+      domain: computer-science

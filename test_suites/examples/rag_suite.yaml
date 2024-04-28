@@ -1,0 +1,90 @@
+name: "RAG Retrieval-Augmented QA"
+description: "Evaluate LLM answers given retrieved context passages"
+version: "1.0"
+tags:
+  - rag
+  - retrieval
+  - factual
+
+test_cases:
+  - id: rag-001
+    question: "What is the maximum cruising altitude of a Boeing 737-800?"
+    expected_answer: "The Boeing 737-800 has a maximum cruising altitude of 41,000 feet (12,497 meters)."
+    context: |
+      The Boeing 737-800 is a short- to medium-range twinjet narrow-body airliner.
+      It has a maximum operating altitude of 41,000 feet (12,497 m), a maximum range
+      of 2,935 nautical miles (5,436 km), and a typical cruising speed of Mach 0.785.
+    tags:
+      - aviation
+      - factual
+    metadata:
+      difficulty: easy
+      source: aircraft_specs_db
+
+  - id: rag-002
+    question: "What were the key provisions of the Treaty of Tordesillas?"
+    expected_answer: "The Treaty of Tordesillas (1494) divided newly discovered lands outside Europe between the Portuguese Empire and the Spanish Crown along a meridian 370 leagues west of the Cape Verde islands."
+    context: |
+      The Treaty of Tordesillas was signed on June 7, 1494, between the kingdoms of
+      Castile and Portugal. It established a line of demarcation 370 leagues west of
+      the Cape Verde islands, granting Spain rights to lands west of the line and
+      Portugal rights to lands east of it. The treaty was ratified by Spain on July 2,
+      1494 and by Portugal on September 5, 1494.
+    tags:
+      - history
+      - factual
+    metadata:
+      difficulty: medium
+      source: history_corpus
+
+  - id: rag-003
+    question: "How does photosynthesis convert CO2 into glucose?"
+    expected_answer: "Photosynthesis converts CO2 into glucose through two stages: the light-dependent reactions in the thylakoid membranes produce ATP and NADPH, and the Calvin cycle in the stroma uses these to fix CO2 into G3P, which is then converted to glucose."
+    context: |
+      Photosynthesis occurs in two main stages. In the light-dependent reactions,
+      occurring in the thylakoid membranes of chloroplasts, water is split and light
+      energy is converted to chemical energy in the form of ATP and NADPH. In the
+      light-independent reactions (Calvin cycle), occurring in the stroma, CO2 is
+      fixed by RuBisCO into 3-phosphoglycerate, which is then reduced to
+      glyceraldehyde-3-phosphate (G3P) using the ATP and NADPH from the first stage.
+      Two molecules of G3P are combined to form one molecule of glucose.
+    tags:
+      - biology
+      - process
+    metadata:
+      difficulty: hard
+      source: biology_textbook
+
+  - id: rag-004
+    question: "What is the time complexity of Dijkstra's algorithm with a binary heap?"
+    expected_answer: "Dijkstra's algorithm with a binary heap has a time complexity of O((V + E) log V), where V is the number of vertices and E is the number of edges."
+    context: |
+      Dijkstra's shortest-path algorithm finds the shortest paths from a source
+      vertex to all other vertices in a weighted directed graph with non-negative
+      edge weights. When implemented with a simple array, it runs in O(V^2). Using
+      a binary min-heap as the priority queue reduces the complexity to
+      O((V + E) log V). A Fibonacci heap further improves this to O(E + V log V).
+    tags:
+      - computer-science
+      - algorithms
+    metadata:
+      difficulty: medium
+      source: algorithms_reference
+
+  - id: rag-005
+    question: "What are the primary symptoms of iron-deficiency anemia?"
+    expected_answer: "Primary symptoms of iron-deficiency anemia include fatigue, weakness, pale skin, shortness of breath, dizziness, cold hands and feet, brittle nails, and unusual cravings for non-nutritive substances (pica)."
+    context: |
+      Iron-deficiency anemia occurs when the body lacks enough iron to produce
+      adequate hemoglobin. Common symptoms include persistent fatigue and weakness,
+      pale or yellowish skin, shortness of breath, dizziness or lightheadedness,
+      cold extremities (hands and feet), brittle or spoon-shaped nails, and pica
+      (cravings for ice, dirt, or starch). In severe cases, patients may experience
+      rapid or irregular heartbeat, chest pain, and headaches. Diagnosis is confirmed
+      through a complete blood count showing low hemoglobin and serum ferritin levels.
+    tags:
+      - medical
+      - factual
+    metadata:
+      difficulty: easy
+      source: medical_reference
